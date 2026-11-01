@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ file_name }} · {{ site_name|default('CineHubPro') }}</title>
+<meta name="theme-color" content="#090b12">
+<style>
+:root{color-scheme:dark;--bg:#080b12;--panel:#121827;--muted:#9aa7ba;--accent:#7b83ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0,#20234b 0,transparent 40%),var(--bg);color:#f6f7fb;font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(16px,5vw,64px);border-bottom:1px solid #ffffff16}
+.brand{font-weight:900;letter-spacing:.08em;color:#fff;text-decoration:none}.brand span{color:#929aff}.tag{color:var(--muted);font-size:.85rem}
+main{max-width:1100px;margin:28px auto;padding:0 18px}.ad{margin:14px 0;text-align:center;min-height:0}.ad:empty{display:none}
+h1{font-size:clamp(1.3rem,4vw,2.4rem);line-height:1.15;overflow-wrap:anywhere;margin:22px 0}
+.player{background:#000;border:1px solid #ffffff1a;border-radius:16px;overflow:hidden;box-shadow:0 20px 80px #0008}
+video{display:block;width:100%;max-height:72vh;background:#000}.meta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;color:var(--muted);margin:12px 0}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:750;background:linear-gradient(135deg,#727cff,#a060e8);color:white}.btn.secondary{background:#182133;border:1px solid #ffffff1c}
+.panel{background:var(--panel);border:1px solid #ffffff12;border-radius:14px;padding:16px;color:var(--muted)}footer{text-align:center;color:#657084;padding:30px 12px;font-size:.85rem}
+@media(max-width:600px){.tag{display:none}main{margin:18px auto}.player{border-radius:10px}.actions .btn{flex:1}}
+</style></head>
+<body><header><a class="brand" href="/">CINEHUB<span>PRO</span></a><span class="tag">Stream · Download</span></header>
+<main><div class="ad">{{ ad_html|safe }}</div><h1>{{ file_name }}</h1>
+<div class="player"><video controls playsinline preload="metadata" src="{{ file_url }}"></video></div>
+<div class="meta"><span>📦 {{ file_size }}</span><span>•</span><span>Original source quality</span></div>
+<div class="actions"><a class="btn" href="{{ file_url }}">⬇ Download file</a><a class="btn secondary" href="{{ file_url }}" target="_blank" rel="noopener">Open direct link</a></div>
+<div class="panel">Quality options depend on the source file. This page streams the original media; separate encoded qualities are shown only if your source provides them.</div>
+<div class="ad">{{ ad_html|safe }}</div></main><footer>© {{ site_name|default('CineHubPro') }}</footer></body></html>
